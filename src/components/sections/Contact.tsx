@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Send, MapPin, Mail, Phone, ExternalLink, Loader2, CheckCircle2 } from 'lucide-react';
 import { PERSONAL_INFO } from '../../constants';
-import { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,7 +13,7 @@ export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
@@ -41,7 +41,7 @@ export default function Contact() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -65,7 +65,7 @@ export default function Contact() {
             <div className="space-y-6">
               <ContactInfoItem icon={<Mail />} label="Email" value={PERSONAL_INFO.email} href={`mailto:${PERSONAL_INFO.email}`} />
               <ContactInfoItem icon={<Phone />} label="Phone" value="+91 7634848781" href="tel:+917634848781" />
-              <ContactInfoItem icon={<MapPin />} label="Location" value="Bhubaneswar, India" href="Bhubaneswar" />
+              <ContactInfoItem icon={<MapPin />} label="Location" value="Bhubaneswar, India" href="https://www.google.com/maps/place/Bhubaneswar,+Odisha,+India" />
             </div>
 
             <div className="glass p-8 rounded-3xl border-white/5 space-y-4 hover:bg-white/[0.04] transition-all duration-500 hover:border-neon-purple/20 group/box shadow-lg hover:shadow-neon-purple/5">
