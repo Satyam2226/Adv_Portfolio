@@ -2,7 +2,7 @@ export const PERSONAL_INFO = {
   name: "Satyam Kumar",
   role: "Full Stack Developer / Python Developer",
   intro: "Computer Science student exploring web development and AI, focused on building modern and efficient applications.",
-  profileImage: "profile.png",
+  profileImage: "https://raw.githubusercontent.com/Satyam2226/Adv_Portfolio/main/public/profile.png",
   email: "satyamkumarbgp8@gmail.com",
   socials: {
     github: "https://github.com/Satyam2226",
