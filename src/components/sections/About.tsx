@@ -18,7 +18,7 @@ export default function About() {
             <div className="absolute -inset-4 bg-gradient-to-r from-neon-blue to-neon-purple rounded-[2rem] opacity-20 group-hover:opacity-40 blur-2xl transition duration-500" />
             <div className="relative glass p-4 rounded-[2rem] overflow-hidden">
                <motion.img 
-                 src={PERSONAL_INFO.profileImage} 
+                 src={`${import.meta.env.BASE_URL}${PERSONAL_INFO.profileImage}`} 
                  alt={PERSONAL_INFO.name} 
                  className="w-full h-auto rounded-3xl md:grayscale group-hover:grayscale-0 transition duration-700 hover:scale-105"
                  referrerPolicy="no-referrer"
