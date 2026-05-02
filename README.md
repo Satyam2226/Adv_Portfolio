@@ -1,20 +1,77 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🚀 Satyam Kumar - Portfolio
 
-# Run and deploy your AI Studio app
+## 👨‍💻 About Me
+Hi, I'm **Satyam Kumar**, a Computer Science student passionate about **Web Development and AI**.  
+I love building modern, efficient, and user-friendly applications while continuously improving my skills.
 
-This contains everything you need to run your app locally.
+> Driven by curiosity, powered by code.
 
-View your app in AI Studio: https://ai.studio/apps/d394c071-0911-40b9-81b4-8b1bcd5bd104
+---
 
-## Run Locally
+## 🌐 Portfolio Overview
+This is my personal portfolio website showcasing my:
+- 💡 Projects
+- 🛠️ Technical Skills
+- 🎓 Academic Background
+- 📜 Internship Experience
 
-**Prerequisites:**  Node.js
+---
 
+## ⚙️ Tech Stack
+- **Frontend:** HTML, CSS, JavaScript, React.js  
+- **Backend:** Node.js (if used)  
+- **Database:** MySQL  
+- **Languages:** Python, Java  
+- **Tools:** Git, GitHub, VS Code
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## 🚀 Featured Projects
+
+### 🛒 Blinkit Clone
+- Developed a responsive e-commerce UI  
+- Integrated backend with MySQL  
+- Focused on performance & user experience  
+
+### 🤖 AI Exam Evaluation System
+- Built using Python  
+- Automatically evaluates answers and generates scores  
+- Provides analytics and feedback  
+
+### 🌦️ Weather App
+- Fetches real-time weather data  
+- Clean UI with responsive design  
+
+---
+
+## 📸 Screenshots
+_Add your project screenshots here_
+
+---
+
+## 📂 Folder Structure
+```
+├── public/
+│   └── profile.png
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   └── sections/
+│   ├── lib/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── constants.ts
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── server.ts
+└── README.md
+```
+
+---
+
+## 📌 Deployment
+1. Install dependencies: `npm install`  
+2. Run locally: `npm run dev`  
+3. Build for production: `npm run build`  
+4. Deploy to GitHub Pages: `npm run deploy`
