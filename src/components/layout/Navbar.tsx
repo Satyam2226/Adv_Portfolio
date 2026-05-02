@@ -49,6 +49,7 @@ export default function Navbar() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 1.1 }}
             className="text-xl font-bold font-display neon-text"
           >
             SK.

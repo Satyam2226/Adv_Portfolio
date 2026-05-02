@@ -37,6 +37,7 @@ function DockIcon({ icon, href, label }: { icon: any, href: string, label: strin
       href={href}
       target="_blank"
       whileHover={{ scale: 1.2, y: -4, color: '#00f2ff' }}
+      whileTap={{ scale: 1.2, y: -4, color: '#00f2ff' }}
       className="text-white/40 hover:text-white transition-all relative group"
     >
       {icon}

@@ -18,6 +18,7 @@ export default function Achievements() {
           {/* Main Stat Card */}
           <motion.div 
             whileHover={{ y: -5 }}
+            whileTap={{ y: -5 }}
             className="md:col-span-2 md:row-span-2 glass p-8 rounded-[2rem] border-white/5 flex flex-col justify-between group overflow-hidden relative"
           >
             <div className="relative z-10">
@@ -49,6 +50,7 @@ export default function Achievements() {
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 1.02 }}
                 className="glass p-5 rounded-[2rem] border-white/5 flex flex-col gap-3 group hover:border-neon-purple/40 transition-all bg-white/[0.02]"
               >
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg shadow-black/20">
@@ -78,6 +80,7 @@ export default function Achievements() {
           {/* Small Stat Box */}
           <motion.div 
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 1.05 }}
             className="glass-dark p-6 rounded-[2rem] border-white/10 flex items-center justify-center text-center group"
           >
              <div>
@@ -88,6 +91,7 @@ export default function Achievements() {
 
           <motion.div 
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 1.05 }}
             className="glass flex items-center justify-center p-6 rounded-[2rem] border-white/5 bg-neon-blue/5"
           >
              <div className="text-center">

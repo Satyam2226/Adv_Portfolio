@@ -17,11 +17,12 @@ export default function About() {
           <div className="relative group w-full max-w-md">
             <div className="absolute -inset-4 bg-gradient-to-r from-neon-blue to-neon-purple rounded-[2rem] opacity-20 group-hover:opacity-40 blur-2xl transition duration-500" />
             <div className="relative glass p-4 rounded-[2rem] overflow-hidden">
-               <img 
+               <motion.img 
                  src={PERSONAL_INFO.profileImage} 
                  alt={PERSONAL_INFO.name} 
-                 className="w-full h-auto rounded-3xl grayscale group-hover:grayscale-0 transition duration-700 hover:scale-105"
+                 className="w-full h-auto rounded-3xl md:grayscale group-hover:grayscale-0 transition duration-700 hover:scale-105"
                  referrerPolicy="no-referrer"
+                 whileTap={{ scale: 1.05 }}
                />
             </div>
             
@@ -52,6 +53,7 @@ export default function About() {
                 <motion.div
                   key={idx}
                   whileHover={{ y: -5 }}
+                  whileTap={{ y: -5 }}
                   className="glass p-6 rounded-2xl border-white/5 hover:border-neon-blue/30 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">

@@ -129,6 +129,7 @@ function SkillCard({ skill, index }: { skill: any, index: number }) {
             {IconComponent && (
               <motion.div
                 whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 1.2, rotate: 5 }}
                 className="transition-transform duration-300"
               >
                 <IconComponent size={32} />
