@@ -1,15 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --color-neon-blue: #00f2ff;
-  --color-neon-purple: #bc13fe;
-  --color-neon-pink: #ff00ea;
-  --color-glass: rgba(255, 255, 255, 0.03);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
-
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -17,7 +8,8 @@
   }
 
   body {
-    @apply bg-black text-white selection:bg-neon-blue/30 overflow-x-hidden;
+    @apply bg-black text-white overflow-x-hidden;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   }
 
   * {
@@ -35,11 +27,11 @@
   }
 
   .neon-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple drop-shadow-[0_0_10px_rgba(0,242,255,0.5)];
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600;
   }
 
   .neon-border {
-    @apply border-transparent bg-gradient-to-r from-neon-blue to-neon-purple;
+    @apply border-transparent bg-gradient-to-r from-cyan-400 to-purple-600;
     background-origin: border-box;
     background-clip: content-box, border-box;
   }
@@ -59,7 +51,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-b from-neon-blue to-neon-purple rounded-full;
+  @apply bg-gradient-to-b from-cyan-400 to-purple-600 rounded-full;
 }
 
 .perspective-1000 {
