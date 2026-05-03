@@ -19,11 +19,16 @@ export default function Contact() {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const apiUrl = `${window.location.origin}/api/contact`;
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+      }
 
       const result = await response.json();
 
@@ -33,10 +38,11 @@ export default function Contact() {
         setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
-        setErrorMessage(Array.isArray(result.error) ? result.error[0].message : result.error || 'Failed to send message');
+        setErrorMessage(Array.isArray(result.error) ? result.error[0]?.message || 'Failed to send' : result.error || 'Failed to send message');
       }
     } catch (err) {
       setStatus('error');
+      console.error('Contact form error:', err);
       setErrorMessage('Something went wrong. Please try again later.');
     }
   };
