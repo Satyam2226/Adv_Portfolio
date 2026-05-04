@@ -4,7 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { createServer as createViteServer } from "vite";
 import { Resend } from "resend";
-import { z } from "zod";
+import { ZodError, z } from "zod";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -68,8 +68,9 @@ async function startServer() {
 
       res.json({ success: true, data });
     } catch (err) {
-      if (err instanceof z.ZodError) {
-        const errorMessages = err.issues.map((issue) => issue.message).filter(Boolean);
+      if (err instanceof ZodError) {
+        const zodErr = err as ZodError;
+        const errorMessages = zodErr.issues?.map((issue) => issue.message).filter(Boolean) || ["Invalid contact form data"];
         console.error("Validation error:", errorMessages);
         return res.status(400).json({ success: false, error: errorMessages });
       }

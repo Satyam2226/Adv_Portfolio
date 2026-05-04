@@ -19,7 +19,8 @@ export default function Contact() {
     setErrorMessage('');
 
     try {
-      const apiUrl = `${window.location.origin}/api/contact`;
+      const apiBaseUrl = import.meta.env.VITE_API_URL || window.location.origin;
+      const apiUrl = `${apiBaseUrl.replace(/\/$/, '')}/api/contact`;
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -27,7 +28,8 @@ export default function Contact() {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+        const errorBody = await response.text();
+        throw new Error(`HTTP Error: ${response.status} ${response.statusText} - ${errorBody}`);
       }
 
       const result = await response.json();
@@ -38,7 +40,12 @@ export default function Contact() {
         setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
-        setErrorMessage(Array.isArray(result.error) ? result.error[0]?.message || 'Failed to send' : result.error || 'Failed to send message');
+        const errorText = Array.isArray(result.error)
+          ? result.error.join(', ')
+          : typeof result.error === 'string'
+          ? result.error
+          : 'Failed to send message';
+        setErrorMessage(errorText);
       }
     } catch (err) {
       setStatus('error');
