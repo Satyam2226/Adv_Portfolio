@@ -202,7 +202,7 @@ function FormInput({ label, placeholder, type, name, value, onChange, required }
   type: string, 
   name: string, 
   value: string, 
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void,
   required?: boolean
 }) {
   return (

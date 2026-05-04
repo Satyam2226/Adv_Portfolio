@@ -24,7 +24,7 @@ async function startServer() {
     name: z.string().min(2),
     email: z.string().email(),
     subject: z.string().min(5),
-    message: z.string().min(10),
+    message: z.string().min(5),
   });
 
   // API Route for Contact Form
@@ -69,8 +69,9 @@ async function startServer() {
       res.json({ success: true, data });
     } catch (err) {
       if (err instanceof z.ZodError) {
-        console.error("Validation error:", err.errors);
-        return res.status(400).json({ success: false, error: err.errors });
+        const errorMessages = err.issues.map((issue) => issue.message).filter(Boolean);
+        console.error("Validation error:", errorMessages);
+        return res.status(400).json({ success: false, error: errorMessages });
       }
       console.error("Server error:", err);
       res.status(500).json({ success: false, error: "Internal Server Error" });
