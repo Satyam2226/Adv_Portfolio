@@ -5,6 +5,9 @@ import { fileURLToPath } from "url";
 import { createServer as createViteServer } from "vite";
 import { Resend } from "resend";
 import { z } from "zod";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,7 +30,9 @@ async function startServer() {
   // API Route for Contact Form
   app.post("/api/contact", async (req, res) => {
     try {
+      console.log("Contact form received:", req.body);
       const { name, email, subject, message } = ContactSchema.parse(req.body);
+      console.log("Validation passed for:", { name, email, subject });
 
       const apiKey = process.env.RESEND_API_KEY;
       
@@ -64,8 +69,10 @@ async function startServer() {
       res.json({ success: true, data });
     } catch (err) {
       if (err instanceof z.ZodError) {
+        console.error("Validation error:", err.errors);
         return res.status(400).json({ success: false, error: err.errors });
       }
+      console.error("Server error:", err);
       res.status(500).json({ success: false, error: "Internal Server Error" });
     }
   });
