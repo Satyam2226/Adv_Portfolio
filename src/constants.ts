@@ -13,15 +13,15 @@ export const PERSONAL_INFO = {
 };
 
 export const SKILLS = [
-  { name: "Python", level: 90, icon: "Terminal" },
-  { name: "Java", level: 85, icon: "Coffee" },
-  { name: "HTML", level: 95, icon: "Layout" },
-  { name: "CSS", level: 90, icon: "Palette" },
-  { name: "JavaScript", level: 85, icon: "Zap" },
-  { name: "Django", level: 80, icon: "Server" },
-  { name: "React", level: 90, icon: "Code2" },
-  { name: "SQL", level: 85, icon: "Database" },
-  { name: "MongoDB", level: 75, icon: "Layers" },
+  { name: "Python", level: 80, icon: "Terminal" },
+  { name: "Java", level: 70, icon: "Coffee" },
+  { name: "HTML", level: 75, icon: "Layout" },
+  { name: "CSS", level: 75, icon: "Palette" },
+  { name: "JavaScript", level: 70, icon: "Zap" },
+  { name: "Django", level: 65, icon: "Server" },
+  { name: "React", level: 60, icon: "Code2" },
+  { name: "SQL", level: 60, icon: "Database" },
+  { name: "MongoDB", level: 60, icon: "Layers" },
 ];
 
 export const EDUCATION = [
@@ -55,7 +55,7 @@ export const EXPERIENCE = [
   {
     company: "PySpiders – Training & Development Center",
     role: "Python with Data Analytics Intern",
-    duration: "Oct 2025 - Ongoing",
+    duration: "Oct 2025 - March 2026",
     points: [
       "Specializing in Python and Data Analytics at the Bhubaneswar center.",
       "Building analytical models to drive data-informed decisions.",

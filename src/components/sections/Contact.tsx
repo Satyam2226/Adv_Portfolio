@@ -19,12 +19,20 @@ export default function Contact() {
     setErrorMessage('');
 
     try {
-      const apiBaseUrl = import.meta.env.VITE_API_URL || window.location.origin;
-      const apiUrl = `${apiBaseUrl.replace(/\/$/, '')}/api/contact`;
+      const fallbackFormUrl = `https://formsubmit.co/ajax/${encodeURIComponent(PERSONAL_INFO.email)}`;
+      const viteEnv = (import.meta as any).env;
+      const apiUrl = viteEnv?.VITE_API_URL?.replace(/\/$/, '') || fallbackFormUrl;
+      const payload = {
+        ...formData,
+        _captcha: 'false',
+        _subject: `New message from ${formData.name}`,
+        _template: 'table',
+      };
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
@@ -78,7 +86,7 @@ export default function Contact() {
             <div className="space-y-6">
               <ContactInfoItem icon={<Mail />} label="Email" value={PERSONAL_INFO.email} href={`mailto:${PERSONAL_INFO.email}`} />
               <ContactInfoItem icon={<Phone />} label="Phone" value="+91 7634848781" href="tel:+917634848781" />
-              <ContactInfoItem icon={<MapPin />} label="Location" value="Bhubaneswar, India" href="https://www.google.com/maps/place/Bhubaneswar,+Odisha,+India" />
+              <ContactInfoItem icon={<MapPin />} label="Location" value="Gurugram, India" href="https://www.google.com/maps/place/Gurugram,+Haryana,+India" />
             </div>
 
             <div className="glass p-8 rounded-3xl border-white/5 space-y-4 hover:bg-white/[0.04] transition-all duration-500 hover:border-neon-purple/20 group/box shadow-lg hover:shadow-neon-purple/5">

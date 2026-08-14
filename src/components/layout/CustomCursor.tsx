@@ -46,7 +46,7 @@ export default function CustomCursor() {
   }, [springs]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[9999] hidden lg:block overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-[9999] block overflow-hidden">
       {springs.map((spring, i) => {
         const size = 6 + (BUBBLE_COUNT - i) * 2;
         const color = i % 3 === 0 ? '#00f2ff' : i % 3 === 1 ? '#bc13fe' : '#ff00ea';
@@ -54,17 +54,17 @@ export default function CustomCursor() {
         return (
           <motion.div
             key={i}
-            className="absolute rounded-full blur-[1px]"
+            className="absolute rounded-full blur-[6px]"
             style={{
               x: spring.x,
               y: spring.y,
               width: size,
               height: size,
               backgroundColor: color,
-              opacity: (1 - i / BUBBLE_COUNT) * 0.4,
+              opacity: (1 - i / BUBBLE_COUNT) * 0.35,
               translateX: "-50%",
               translateY: "-50%",
-              scale: isHovering ? 1.5 : 1,
+              scale: isHovering ? 1.2 : 1,
             }}
           />
         );
@@ -72,14 +72,14 @@ export default function CustomCursor() {
       
       {/* Main Cursor Core */}
       <motion.div
-        className="absolute w-2 h-2 bg-white rounded-full z-10"
+        className="absolute w-6 h-6 rounded-full z-10 border-2 border-white bg-transparent shadow-[0_0_12px_rgba(124,58,237,0.25)]"
         animate={{
           x: mousePos.x,
           y: mousePos.y,
-          scale: isHovering ? 4 : 1,
+          scale: isHovering ? 1.8 : 1,
         }}
         transition={{ type: "tween", ease: "linear", duration: 0 }}
-        style={{ translateX: "-50%", translateY: "-50%" }}
+        style={{ translateX: "-50%", translateY: "-50%", mixBlendMode: 'difference' as any }}
       />
     </div>
   );
